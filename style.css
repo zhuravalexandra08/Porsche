@@ -1,0 +1,586 @@
+@font-face {
+    font-family: "CormorantInfant";
+    src: url("fonts/CormorantInfant-Light.ttf");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "CormorantInfant";
+    src: url("fonts/CormorantInfant-Medium.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "CormorantInfant";
+    src: url("fonts/CormorantInfant-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "CormotantInfant";
+    src: url("fonts/CormorantInfant-SemiBold.ttf");
+    font-weight: 700;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "CormotantInfant", serif;
+}
+
+html {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 8rem;
+    font-weight: 300;
+}
+
+h2,
+h3 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+    margin: auto;
+    border: solid 1px black;
+}
+
+.header-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.header-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.header-container video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+}
+
+.video_desktop {
+    display: block;
+}
+
+.img_mobile {
+    display: none;
+}
+
+.overlay-top {
+    background: white;
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    transition: 0.5s;
+}
+
+.overlay-bottom {
+    background: white;
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    transition: 0.5s;
+}
+
+.header-title {
+    position: absolute;
+    top: 30%;
+    width: 90%;
+    letter-spacing: 0.4em;
+    text-align: center;
+}
+
+.header-button {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #8D4545;
+    padding: 31px 122px 34px 121px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    transition: 0.5s;
+}
+
+.header-button::before {
+    content: url(img/icons/left-arrow.png);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-75%) scale(0.85);
+    transform-origin: top;
+}
+
+.header-button::after {
+    content: url(img/icons/right-arrow.png);
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(75%) scale(0.85);
+    transform-origin: top;
+}
+
+.header-button:hover {
+    transform: translateX(-50%) scale(1.2);
+    background-color: #743838;
+}
+
+.header-container:hover .overlay-top {
+    transform: translateY(-80%);
+}
+
+.header-container:hover .overlay-bottom {
+    transform: translateY(80%);
+}
+
+.navigation {
+    height: 100%;
+    width: 130px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    box-shadow: -5px 0 20px #00000043;
+    z-index: 10;
+}
+
+.nav_container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+    gap: 10px;
+}
+
+.nav_item {
+    position: relative;
+}
+
+.nav_item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    overflow: hidden;
+    color: white;
+    transition: 0.5s;
+}
+
+.nav_item:hover::before {
+    background-color: #8D4545;
+    border: solid black 1px;
+
+    padding: 14px 52px 15px 55px;
+    transform: translate(-100%, -50%);
+    width: 70px;
+}
+
+.nav_item:hover img {
+    background-color: #8D4545;
+    transform: scale(0.86);
+}
+
+.nav_item img {
+    transition: 0.5s;
+}
+
+.nav_item:nth-of-type(1)::before {
+    content: "Главная";
+}
+
+.nav_item:nth-of-type(2)::before {
+    content: "История";
+}
+
+.nav_item:nth-of-type(3)::before {
+    content: "Этапы";
+}
+
+.nav_item:nth-of-type(4)::before {
+    content: "Модели";
+}
+
+.history {
+    height: 100vh;
+}
+
+.history-container {
+    display: flex;
+    padding: 16px 20px 54px 30px;
+}
+
+.history-left {
+    width: 50%;
+}
+
+.history-right {
+    width: 50%;
+    overflow: hidden;
+    position: relative;
+    height: 450px;
+}
+
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.section-title::first-letter {
+    font-size: 3.5rem;
+}
+
+.history-left p {
+    color: #848484;
+    width: 80%;
+}
+
+.history-left p::first-line {
+    color: black;
+    font-weight: 700;
+}
+
+.stages {
+    margin-bottom: 100px;
+}
+
+.gallery-container {
+    width: 1065px;
+    margin: 46px auto;
+    display: flex;
+    position: absolute;
+    left: 0%;
+    height: 100%;
+
+    animation: card-changer 10s linear infinite;
+}
+
+@keyframes card-changer {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: -1065px;
+    }
+}
+
+.gallery-container img {
+    width: 450px;
+
+}
+
+.stages_container {
+    display: flex;
+    justify-content: flex-start;
+    height: 215px;
+    overflow: hidden;
+    position: relative;
+    flex-direction: column;
+}
+
+.stages-text {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+/*     position: absolute; */
+    top: 0;
+
+
+    animation: text-changer 10s linear infinite;
+}
+
+.stages-text h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 30px;
+    background-color: white;
+}
+
+.stages-text h2::first-letter {
+    font-size: 3.5rem;
+}
+
+.stages_wrapper {
+    max-height: 2rem;
+    height: 2rem;
+    overflow: hidden;
+    width: 100%;
+}
+
+.stage-text {
+    font-size: 1.4rem;
+    list-style: none;
+    position: relative;
+    line-height: 2rem;
+    height: 2rem;
+    padding-left: 40px;
+}
+
+@keyframes text-changer {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-86%);
+    }
+}
+
+.stage-text::before {
+    content: url(img/icons/porsche-logo.png);
+    position: absolute;
+    left: 10px;
+}
+
+.stage-text p {
+    color: #848484;
+}
+
+
+.stage-text span {
+    color: black;
+}
+
+
+
+.model-card {
+    display: flex;
+    width: min-content;
+    align-items: center;
+}
+
+.model-card img {
+    width: 500px;
+    object-fit: cover;
+}
+
+.model-text h3 {
+    text-align: center;
+}
+
+.models {
+    margin-bottom: 100px;
+}
+
+.model-text {
+    padding: 20px 30px;
+    width: 400px;
+    height: fit-content;
+    transform: translateX(20%);
+    background-color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.236);
+    position: relative;
+}
+
+.model-text::before {
+    content: "";
+    background-color: black;
+    height: 3px;
+    width: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: 0.5s;
+}
+
+.model-text::after {
+    content: "";
+    background-color: black;
+    height: 3px;
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+.model-text:hover::before, .model-text:hover::after {
+    width: 100%;
+}
+
+.model-text p {
+    color: #848484;
+}
+
+.model-text p::first-letter {
+    color: black;
+    font-weight: bold;
+}
+
+.model-card:nth-of-type(2n) .model-text {
+    transform: translateX(-20%);
+}
+
+.models-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 31px;
+}
+
+.model-card:nth-of-type(2n+1) {
+    margin-left: auto;
+
+}
+
+.footer-text {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.footer-container {
+    height: 440px;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    text-align: center;
+    margin: auto;
+}
+
+@media(max-width:375px) {
+    .container {
+        max-width: 325px;
+        padding: 24px 20px;
+    }
+    html {
+        font-size: 15px;
+    }
+    h1, h2, h3 {
+        font-size: 2rem;
+    }
+    .nav_container {
+        flex-direction: row;
+        padding: 13px 20px;
+        justify-content: flex-end;
+    }
+    .nav_item:first-of-type {
+        margin-right: auto;
+    }
+    .navigation {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        
+    }
+    .header-title {
+        padding: 44px 0;
+    }
+    .nav_item {
+        width: 40px;
+        height: 40px;
+    }
+    .nav_item img {
+        width: 100%;
+        height: 100%;
+    }
+    .model-card:nth-of-type(2n+1) {
+        margin: 0;
+    }
+    .model-card {
+        flex-direction: column;
+        width: 100%;
+    }
+    .model-text {
+        transform: translateX(0);
+        width: 100%;
+    }
+    .model-card img{
+        width: 100%;
+    }
+    .header-button {
+        padding: 10px 60px 10px 60px;
+        border-radius: 5px;
+        margin-top: 75px;
+    }
+    .header-button::before {
+        content: url("img/icons/lext-arrow m.png");
+    }
+    .header-button::after {
+        content: url("img/icons/right-arrow m.png");
+    }
+    .video_desktop {
+        display: none;
+    }
+    .img_mobile {
+        display: block;
+    }
+    .header-title {
+        position: static;
+        width: 100%;
+        color: #787878;
+        
+    }
+    .history-right {
+        width: 100%;
+    }
+    .history-left {
+        width: 100%;
+        
+    }
+    .history-container {
+        flex-direction: column-reverse;
+    }
+    .history {
+        height: max-content;
+    }
+    .stage-text {
+        height: 4rem;
+        line-height: 2rem;
+    }
+    .stages_wrapper {
+        height: 4rem;
+        max-height: 4rem;
+    }
+    .model-card:nth-of-type(2n+1) {
+        flex-direction: column-reverse;
+    }
+    .stages {
+        margin: 30px 0 33px;
+    }
+    .model-text::before, .model-text::after {
+        content: "";
+        width: 0;
+        display: none;
+    }
+    .model-card img {
+        border: black solid 1px;
+    }
+    .model-text {
+        border: solid black 1px;
+        margin-top: 9px;
+    }
+    .model-card:nth-of-type(2n) .model-text {
+        transform: translateX(0);
+    }
+    .footer-container {
+        max-width: 335px;
+    }
+}
+
+/* Повторить, что такое flex https://tproger.ru/translations/how-css-flexbox-works/, пройти хотя бы 5 уровней flexbox froggy https://flexboxfroggy.com/#ru */
+
+/* Повторить медиазапросы по шпаргалке "Создание landing page" */
+
+Попробовать доделать мобильную версию сайта по макету Если контент вылезает за пределы экрана по оси Y, то скорее всего у контейнера фиксированная высота, ее можно отменить через height: fit-content
